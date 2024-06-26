@@ -1,5 +1,4 @@
 
-## conda environment : source activate env_clip
 import torch
 import clip
 from PIL import Image
@@ -7,17 +6,13 @@ from sklearn.metrics import roc_auc_score
 from sklearn import metrics
 import numpy as np
 import os
-from torch.utils.data import DataLoader
-from all_loader_default_v2 import get_dataset_manager
 import glob
 
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 print ("ready to load")
 model, preprocess = clip.load("ViT-B/32", device=device)
-# data_path = os.getcwd() + '/data/cifar10/FH/fh_concept/'
-data_path = os.getcwd() + '/data/cifar10/RC/rc_concept/'
-# data_path = os.getcwd() + '/data/cifar10/WC/wc_concept/'
+data_path = os.getcwd() + '/data/cifar10/RC/rc_concept/' ## RED CAR folder
 
 print (data_path)
 
@@ -57,9 +52,7 @@ print (len(probss))
 all_probs.extend(probss)
 
 probss = []
-# data_path = os.getcwd() + '/data/cifar10/FH/fh_negconcept/'
 data_path = os.getcwd() + '/data/cifar10/RC/rc_negconcept/'
-# data_path = os.getcwd() + '/data/cifar10/WC/wc_negconcept/'
 
 lst = os.listdir(data_path) # your directory path
 nonconcepts =  len(lst)
