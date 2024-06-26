@@ -4,3 +4,4 @@ Requirements
 1. Install clip
 2. install PIL
 3. Install numpy
+4. Install sklearn
